@@ -1,0 +1,201 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`basic usage 1`] = `
+"'use strict';
+
+var React = require('react');
+var Markdown;
+function TestComponent() {
+  return React.createElement(
+    'div',
+    null,
+    React.createElement(
+      'h1',
+      null,
+      'Title'
+    ),
+    React.createElement(
+      'p',
+      null,
+      'This is ',
+      React.createElement(
+        'strong',
+        null,
+        'bold.'
+      )
+    ),
+    React.createElement(
+      'p',
+      null,
+      'Here is a ',
+      React.createElement(
+        'a',
+        { href: '/some/url' },
+        'link'
+      ),
+      '.'
+    )
+  );
+}"
+`;
+
+exports[`basic usage inline 1`] = `
+"'use strict';
+
+var React = require('react');
+var Markdown;
+function TestComponent() {
+  return React.createElement(
+    'div',
+    null,
+    'Here is ',
+    React.createElement(
+      'span',
+      null,
+      React.createElement(
+        'em',
+        null,
+        'interpolated'
+      ),
+      ' markdown'
+    )
+  );
+}"
+`;
+
+exports[`extra props to element 1`] = `
+"'use strict';
+
+var React = require('react');
+var Markdown;
+function TestComponent() {
+  return React.createElement(
+    'p',
+    null,
+    'Here is ',
+    React.createElement(
+      'span',
+      { style: { background: '#eee' } },
+      React.createElement(
+        'em',
+        null,
+        'interpolated'
+      ),
+      ' markdown'
+    )
+  );
+}"
+`;
+
+exports[`nested jsx 1`] = `
+"'use strict';
+
+var React = require('react');
+var Markdown;
+function TestComponent() {
+  var number = 4;
+  return React.createElement(
+    'p',
+    null,
+    'Here is a number: ',
+    React.createElement(
+      'span',
+      { style: { fontWeight: 'bold' } },
+      number
+    ),
+    '. Here it is again: ',
+    number,
+    '.'
+  );
+}"
+`;
+
+exports[`syntax highlighting 1`] = `
+"'use strict';
+
+var React = require('react');
+var Markdown;
+function TestComponent() {
+  return React.createElement(
+    'div',
+    null,
+    React.createElement(
+      'p',
+      null,
+      'Here is a ',
+      React.createElement(
+        'a',
+        { href: '#thing' },
+        'link'
+      ),
+      '.'
+    ),
+    React.createElement(
+      'pre',
+      null,
+      React.createElement(
+        'code',
+        { className: 'language-js' },
+        React.createElement(
+          'span',
+          { className: 'token keyword' },
+          'var'
+        ),
+        ' thing ',
+        React.createElement(
+          'span',
+          { className: 'token operator' },
+          '='
+        ),
+        ' ',
+        React.createElement(
+          'span',
+          { className: 'token string' },
+          '\\\\'two\\\\''
+        ),
+        ' ',
+        React.createElement(
+          'span',
+          { className: 'token operator' },
+          '==='
+        ),
+        ' ',
+        React.createElement(
+          'span',
+          { className: 'token number' },
+          '48'
+        ),
+        React.createElement(
+          'span',
+          { className: 'token punctuation' },
+          ';'
+        ),
+        \\"\\\\n\\",
+        React.createElement(
+          'span',
+          { className: 'token keyword' },
+          'var'
+        ),
+        ' three ',
+        React.createElement(
+          'span',
+          { className: 'token operator' },
+          '='
+        ),
+        ' ',
+        React.createElement(
+          'span',
+          { className: 'token number' },
+          '4'
+        ),
+        React.createElement(
+          'span',
+          { className: 'token punctuation' },
+          ';'
+        ),
+        \\"\\\\n\\"
+      )
+    )
+  );
+}"
+`;

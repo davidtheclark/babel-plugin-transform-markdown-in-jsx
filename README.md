@@ -2,4 +2,4 @@
 
 Transform Markdown inside JSX to DOM elements at compile time.
 
-🚧🚧  **WORK IN PROGRESS** 🚧🚧
+🚧🚧  **EXPERIMENTAL WORK IN PROGRESS** 🚧🚧

@@ -42,7 +42,7 @@ module.exports = babel => {
     return jsx;
   };
 
-  const processJSXElement = (path, options) => {
+  function processJSXElement(path, options) {
     const inline = path
       .get('openingElement')
       .node.attributes.some(attribute => {
@@ -103,9 +103,8 @@ module.exports = babel => {
       node => !elementProps.has(node.name.name)
     );
     parsedJsx.openingElement.attributes = cleanedAttributes;
-
     path.replaceWith(parsedJsx);
-  };
+  }
 
   const visitor = {};
 
