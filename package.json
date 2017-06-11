@@ -1,5 +1,5 @@
 {
-  "name": "babel-plugin-markdown-jsx",
+  "name": "babel-plugin-transform-markdown-in-jsx",
   "version": "0.1.0",
   "description": "Transform Markdown inside JSX to DOM elements at compile time",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/davidtheclark/babel-plugin-markdown-jsx.git"
+    "url": "git+https://github.com/davidtheclark/babel-plugin-transform-markdown-in-jsx.git"
   },
   "keywords": [
     "babel",
@@ -19,7 +19,7 @@
   "author": "David Clark",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/davidtheclark/babel-plugin-markdown-jsx/issues"
+    "url": "https://github.com/davidtheclark/babel-plugin-transform-markdown-in-jsx/issues"
   },
-  "homepage": "https://github.com/davidtheclark/babel-plugin-markdown-jsx#readme"
+  "homepage": "https://github.com/davidtheclark/babel-plugin-transform-markdown-in-jsx#readme"
 }
