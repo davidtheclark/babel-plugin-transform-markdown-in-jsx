@@ -4,6 +4,9 @@
   "description": "Transform Markdown inside JSX to DOM elements at compile time",
   "main": "index.js",
   "scripts": {
+    "format": "prettier --single-quote --write '**/*.js'",
+    "start-demo": "budo demo/index.js -d -l --css demo/style.css -- -t babelify",
+    "compile-demo": "babel demo -d compiled-demo",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,5 +24,35 @@
   "bugs": {
     "url": "https://github.com/davidtheclark/babel-plugin-transform-markdown-in-jsx/issues"
   },
-  "homepage": "https://github.com/davidtheclark/babel-plugin-transform-markdown-in-jsx#readme"
+  "homepage": "https://github.com/davidtheclark/babel-plugin-transform-markdown-in-jsx#readme",
+  "dependencies": {
+    "babylon": "^6.17.3",
+    "htmltojsx": "^0.2.6",
+    "lodash": "^4.17.4",
+    "markdown-it": "^8.3.1",
+    "prismjs": "^1.6.0",
+    "strip-indent": "^2.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babelify": "^7.3.0",
+    "budo": "^10.0.3",
+    "prettier": "^1.4.4",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react"
+    ],
+    "plugins": [
+      "./index.js"
+    ]
+  }
 }

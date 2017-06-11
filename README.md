@@ -1,2 +1,5 @@
 # babel-plugin-markdown-jsx
-Transform Markdown inside JSX to DOM elements at compile time
+
+Transform Markdown inside JSX to DOM elements at compile time.
+
+🚧🚧  **WORK IN PROGRESS** 🚧🚧
