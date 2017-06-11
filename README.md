@@ -36,7 +36,7 @@ function MyComponent() {
       <Markdown>
         ## Heading
 
-        *This* text, thought, **is** Markdown.
+        *This* text, though, **is** Markdown.
 
         And this is the second paragraph of it, with a [link](/some/url).
 
