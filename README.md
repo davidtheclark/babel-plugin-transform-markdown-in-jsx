@@ -1,8 +1,17 @@
 # babel-plugin-transform-markdown-jsx
 
+
 Transform Markdown inside JSX to DOM elements at compile time.
 
 🚧🚧  **EXPERIMENTAL WORK IN PROGRESS (see caveats)** 🚧🚧
+
+---
+
+## Not for public consumption 
+
+Instead, check out [jsxtreme-markdown](https://github.com/mapbox/jsxtreme-markdown), which turned out to be a better idea, I think.
+
+---
 
 ## Purpose
 
