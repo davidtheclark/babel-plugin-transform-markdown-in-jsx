@@ -79,7 +79,10 @@ test('syntax highlighting', () => {
 test('nest Markdown components', () => {
   const renderBody = `return (
     <Markdown>
-      **no markdown**
+      **markdown**
+      <div>
+        **no markdown**
+      </div>
       <Markdown>
         **markdown**
       </Markdown>

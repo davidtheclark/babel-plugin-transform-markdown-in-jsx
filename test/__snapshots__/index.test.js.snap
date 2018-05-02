@@ -102,8 +102,13 @@ function TestComponent() {
       React.createElement(
         'strong',
         null,
-        'no markdown'
+        'markdown'
       )
+    ),
+    React.createElement(
+      'div',
+      null,
+      '**no markdown**'
     ),
     React.createElement(
       'div',
