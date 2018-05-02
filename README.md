@@ -69,7 +69,6 @@ function MyComponent() {
 ## Caveats
 
 - Content within nested JSX elements and expressions is *not* parsed as Markdown.
-- You cannot nest Markdown components.
 - Code in the Markdown will work fine *as long as you don't use any braces*.
   However, lots of code uses braces.
   So code generally does not work fine.

@@ -4,6 +4,7 @@ const babylon = require('babylon');
 const HTMLtoJSX = require('htmltojsx');
 const stripIndent = require('strip-indent');
 const Prism = require('prismjs');
+const traverse = require('babel-traverse').default;
 
 const PACKAGE_NAME = 'babel-plugin-transform-markdown-in-jsx/component';
 const elementProps = new Set(['inline']);
@@ -31,14 +32,17 @@ module.exports = babel => {
 
   const markdownToJsx = (markdown, options) => {
     const text = stripIndent(markdown).trim();
-    const html = options.inline ? md.renderInline(text) : md.render(text);
+    let html = options.inline ? md.renderInline(text) : md.render(text);
     const converter = new HTMLtoJSX({ createClass: false });
-    let jsx = converter.convert(html);
+
     if (options.inline) {
-      jsx = jsx
-        .replace(/^\s*<div>\s*/, '<span>')
-        .replace(/\s*<\/div>\s*$/, '</span>');
+      html = `<span>${html}</span>`
+    } else {
+      html = `<div>${html}</div>`
     }
+
+
+    let jsx = converter.convert(html);
     return jsx;
   };
 
@@ -83,17 +87,17 @@ module.exports = babel => {
       const after = mdWithoutJsx.slice(replacement.node.end - mdStartIndex);
       mdWithoutJsx = [
         before,
-        `<!-- ${replacement.placeholder} -->`,
+        `<!--${replacement.placeholder}-->`,
         after
       ].join('');
     });
 
     let jsx = markdownToJsx(mdWithoutJsx, { inline });
-    replacements.forEach(replacement => {
-      // The HTML placeholder will have been replaced by a JSX comment.
-      const jsxPlaceholder = `{/* ${replacement.placeholder} */}`;
-      jsx = jsx.replace(jsxPlaceholder, replacement.text);
-    });
+    // replacements.forEach(replacement => {
+    //   // The HTML placeholder will have been replaced by a JSX comment.
+    //   const jsxPlaceholder = `{/* ${replacement.placeholder} */}`;
+    //   jsx = jsx.replace(jsxPlaceholder, replacement.text);
+    // });
 
     const parsedJsx = babylon.parseExpression(jsx, { plugins: ['jsx'] });
 
@@ -104,6 +108,22 @@ module.exports = babel => {
     );
     parsedJsx.openingElement.attributes = cleanedAttributes;
     path.replaceWith(parsedJsx);
+
+    path.traverse({
+      JSXExpressionContainer(path) {
+        if (babelTypes.isJSXEmptyExpression(path.node.expression) &&
+        !!path.node.expression.innerComments &&
+        path.node.expression.innerComments.length === 1) {
+          for (let index = 0; index < replacements.length; index++) {
+            const jsxPlaceholder = replacements[index].placeholder;
+            if (path.node.expression.innerComments[0].value === jsxPlaceholder) {
+              path.replaceWith(replacements[index].node);
+              return;
+            }
+          }
+        }
+      }
+    });
   }
 
   const visitor = {};

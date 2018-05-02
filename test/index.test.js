@@ -75,3 +75,20 @@ test('syntax highlighting', () => {
 
   expect(transform(renderBody)).toMatchSnapshot();
 });
+
+test('nest Markdown components', () => {
+  const renderBody = `return (
+    <Markdown>
+      **markdown**
+      <div>
+        **no markdown**
+      </div>
+      <Markdown>
+        **markdown**
+      </Markdown>
+      {/*common comments*/}
+    </Markdown>
+  )`;
+
+  expect(transform(renderBody)).toMatchSnapshot();
+});
