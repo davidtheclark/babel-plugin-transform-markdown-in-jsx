@@ -87,6 +87,41 @@ function TestComponent() {
 }"
 `;
 
+exports[`nest Markdown components 1`] = `
+"'use strict';
+
+var React = require('react');
+var Markdown;
+function TestComponent() {
+  return React.createElement(
+    'div',
+    null,
+    React.createElement(
+      'p',
+      null,
+      React.createElement(
+        'strong',
+        null,
+        'no markdown'
+      )
+    ),
+    React.createElement(
+      'div',
+      null,
+      React.createElement(
+        'p',
+        null,
+        React.createElement(
+          'strong',
+          null,
+          'markdown'
+        )
+      )
+    )
+  );
+}"
+`;
+
 exports[`nested jsx 1`] = `
 "'use strict';
 
@@ -95,17 +130,21 @@ var Markdown;
 function TestComponent() {
   var number = 4;
   return React.createElement(
-    'p',
+    'div',
     null,
-    'Here is a number: ',
     React.createElement(
-      'span',
-      { style: { fontWeight: 'bold' } },
-      number
-    ),
-    '. Here it is again: ',
-    number,
-    '.'
+      'p',
+      null,
+      'Here is a number: ',
+      React.createElement(
+        'span',
+        { style: { fontWeight: 'bold' } },
+        number
+      ),
+      '. Here it is again: ',
+      number,
+      '.'
+    )
   );
 }"
 `;

@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/davidtheclark/babel-plugin-transform-markdown-in-jsx#readme",
   "dependencies": {
+    "babel-traverse": "^6.26.0",
     "babylon": "^6.17.3",
     "htmltojsx": "^0.2.6",
     "lodash": "^4.17.4",
